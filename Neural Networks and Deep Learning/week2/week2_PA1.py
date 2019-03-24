@@ -52,6 +52,7 @@ train_set_x = train_set_x_flatten / 255.
 test_set_x = test_set_x_flatten / 255.
 
 
+
 def sigmoid(z):
     return 1 / (1 + np.exp(-z)) 
 
@@ -62,7 +63,6 @@ def sigmoid(z):
 def initialize_with_zeros(dim):
     w = np.zeros(shape=(dim, 1))
     b = 0
-    print(w)
     return w, b
 
 def propagate(w, b, X, Y):
@@ -80,3 +80,18 @@ def propagate(w, b, X, Y):
     dw -- gradient of the loss with respect to w, thus same shape as w
     db -- gradient of the loss with respect to b, thus same shape as b
     """
+
+    m = X.shape[1]
+    y_hat = sigmoid(np.dot(w.T,X) + b)
+    db = (1/m)*(np.sum(y_hat - Y))
+    dw = (1/m)*(np.dot(X,(y_hat - Y).T))
+    cost = (-1/m) * (np.dot(Y,np.log(y_hat).T) + np.dot((1-Y),np.log(1-y_hat).T))
+    cost = np.squeeze(cost)
+    return cost, dw, db
+
+
+w, b, X, Y = np.array([[1], [2]]), 2, np.array([[1,2], [3,4]]), np.array([[1, 0]])
+cost, dw, db = propagate(w, b, X, Y)
+print ("dw = " + str(dw))
+print ("db = " + str(db))
+print ("cost = " + str(cost))
