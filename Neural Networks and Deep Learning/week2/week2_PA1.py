@@ -97,7 +97,7 @@ def propagate(w, b, X, Y):
 # print ("cost = " + str(cost))
 
 
-def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
+def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost=False):
     """
     This function optimizes w and b by running a gradient descent algorithm
     
@@ -119,19 +119,25 @@ def optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False):
         2) Update the parameters using gradient descent rule for w and b.
     """
     costs = []
-    for _ in range(num_iterations):
+    for i in range(num_iterations):
         cost, dw, db = propagate(w, b, X, Y)
-        costs.append(cost)
         # w -= learning_rate * dw
         # b -= learning_rate * db
         w = w - learning_rate * dw  
         b = b - learning_rate * db
     
+        if i % 100 == 0:
+            costs.append(cost)
+            # Print the cost every 100 training examples
+            if print_cost:
+                print ("Cost after iteration %i: %f" % (i, cost))
+
+
     return costs, w, b, dw, db
 
 
-w, b, X, Y = np.array([[1], [2]]), 2, np.array([[1,2], [3,4]]), np.array([[1, 0]])
-costs, w, b, dw, db = optimize(w, b, X, Y, num_iterations= 100, learning_rate = 0.009, print_cost = False)
+# w, b, X, Y = np.array([[1], [2]]), 2, np.array([[1,2], [3,4]]), np.array([[1, 0]])
+# costs, w, b, dw, db = optimize(w, b, X, Y, num_iterations= 100, learning_rate = 0.009, print_cost = False)
 # print ("w = " + str(w))
 # print ("b = " + str(b))
 # print ("dw = " + str(dw))
@@ -155,6 +161,71 @@ def predict(w, b, X):
     Y_prediction = np.round(Y_hat) #0 (if activation <= 0.5) or 1 (if activation > 0.5)
     return Y_prediction
 
-print("predictions = " + str(predict(w, b, X)))
+# print("predictions = " + str(predict(w, b, X)))
 
 
+def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5, print_cost=False):
+    """
+    Builds the logistic regression model by calling the function you've implemented previously
+    
+    Arguments:
+    X_train -- training set represented by a numpy array of shape (num_px * num_px * 3, m_train)
+    Y_train -- training labels represented by a numpy array (vector) of shape (1, m_train)
+    X_test -- test set represented by a numpy array of shape (num_px * num_px * 3, m_test)
+    Y_test -- test labels represented by a numpy array (vector) of shape (1, m_test)
+    num_iterations -- hyperparameter representing the number of iterations to optimize the parameters
+    learning_rate -- hyperparameter representing the learning rate used in the update rule of optimize()
+    print_cost -- Set to true to print the cost every 100 iterations
+    
+    Returns:
+    d -- dictionary containing information about the model.
+    """
+
+    w, b = initialize_with_zeros(X_train.shape[0])
+    costs, w, b, dw, db = optimize(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost)
+    Y_hat_train = predict(w, b, X_train)
+    Y_hat_test = 0
+    Y_hat_test = predict(w, b, X_test)
+
+    print("train accuracy: {} %".format(100 - np.mean(np.abs(Y_hat_train - Y_train)) * 100))
+    print("test accuracy: {} %".format(100 - np.mean(np.abs(Y_hat_test - Y_test)) * 100))
+    
+    d = {"costs": costs,
+         "Y_prediction_test": Y_hat_test, 
+         "Y_prediction_train" : Y_hat_train, 
+         "w" : w, 
+         "b" : b,
+         "learning_rate" : learning_rate,
+         "num_iterations": num_iterations}
+    
+    return d
+
+
+# d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 1000, learning_rate = 0.005, print_cost=True)
+
+# costs = np.squeeze(d['costs'])
+# plt.plot(costs)
+# plt.ylabel('cost')
+# plt.xlabel('iterations (per hundreds)')
+# plt.title("Learning rate =" + str(d["learning_rate"]))
+# plt.show()
+
+# Interpretation: You can see the cost decreasing. It shows that the parameters are being learned.
+# However, you see that you could train the model even more on the training set.
+# Try to increase the number of iterations in the cell above and rerun the cells.
+# You might see that the training set accuracy goes up, but the test set accuracy goes down. This is called overfitting.
+
+import time
+
+learning_rate = 0.003
+
+while learning_rate < 1:
+    print("learning rate = " + str(learning_rate))
+    tic = toc = 0
+    tic = time.time()
+    d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 1000, learning_rate = learning_rate, print_cost=False)
+    toc = time.time()
+
+    print('{0}{1:.2f}{2}'.format("Calculation Time = ",(toc - tic)," seconds"))
+    # print("{0:.2f}".format(average))
+    learning_rate *= 2
