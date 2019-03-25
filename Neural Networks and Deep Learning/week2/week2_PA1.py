@@ -215,17 +215,43 @@ def model(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0
 # Try to increase the number of iterations in the cell above and rerun the cells.
 # You might see that the training set accuracy goes up, but the test set accuracy goes down. This is called overfitting.
 
-import time
 
-learning_rate = 0.003
 
-while learning_rate < 1:
-    print("learning rate = " + str(learning_rate))
-    tic = toc = 0
-    tic = time.time()
-    d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 1000, learning_rate = learning_rate, print_cost=False)
-    toc = time.time()
 
-    print('{0}{1:.2f}{2}'.format("Calculation Time = ",(toc - tic)," seconds"))
-    # print("{0:.2f}".format(average))
-    learning_rate *= 2
+# import time
+# learning_rate = 0.003
+# while learning_rate < 1:
+#     print("learning rate = " + str(learning_rate))
+#     tic = toc = 0
+#     tic = time.time()
+#     d = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 1000, learning_rate = learning_rate, print_cost=False)
+#     toc = time.time()
+#     print('{0}{1:.2f}{2}'.format("Calculation Time = ",(toc - tic)," seconds"))
+#     learning_rate *= 2
+
+
+
+
+# learning_rates = [0.03, 0.01, 0.003, 0.001, 0.0001]
+# models = {}
+# for i in learning_rates:
+#     print ("learning rate is: " + str(i))
+#     models[str(i)] = model(train_set_x, train_set_y, test_set_x, test_set_y, num_iterations = 1500, learning_rate = i, print_cost = False)
+#     print ("-------------------------------------------------------")
+
+# for i in learning_rates:
+#     plt.plot(np.squeeze(models[str(i)]["costs"]), label= str(models[str(i)]["learning_rate"]))
+
+# plt.ylabel('cost')
+# plt.xlabel('iterations')
+
+# legend = plt.legend(loc='upper center', shadow=True)
+# frame = legend.get_frame()
+# frame.set_facecolor('0.90')
+# plt.show()
+
+# it is obvious that 0.003 is the best choice (min test accuracy, doesn't overshoot -high bias-)
+
+# In deep learning, we usually recommend that you:
+#     Choose the learning rate that better minimizes the cost function.
+#     If your model overfits, use other techniques to reduce overfitting. 
