@@ -5,9 +5,6 @@ https://github.com/Kulbear/deep-learning-coursera/blob/master/Neural%20Networks%
 notes :
 Implement a 2-class classification neural network with a single hidden layer
 Implement forward and backward propagation
-
-Instructions:
-
 """
 
 
@@ -75,6 +72,11 @@ def initialize_parameters(n_x, n_h, n_y):
     W2 = np.random.randn(n_y, n_h) * 0.01
     return b1, W1, b2, W2
 
+# n_x, n_h, n_y = layer_sizes(X, Y)
+# b1, W1, b2, W2 = initialize_parameters(n_x, n_h, n_y)
+
+def ReLu(x):
+    return np.maximum(0, x)
 
 def forward_propagation(X, b1, W1, b2, W2):
     """
@@ -84,6 +86,7 @@ def forward_propagation(X, b1, W1, b2, W2):
     """
     Z1 = np.dot(W1,X) + b1
     A1 = np.tanh(Z1)
+    # A1 = ReLu(Z1)   # using ReLu as the activation function.
     Z2 = np.dot(W2,A1) + b2
     A2 = sigmoid(Z2)
 
@@ -104,6 +107,12 @@ def compute_cost(A2, Y, W1, W2):
     return cost
 
 
+def reluDerivative(x):
+    x[x<=0] = 0
+    x[x>0] = 1
+    return x
+
+
 def backward_propagation(b1, W1, b2, W2, Z1, A1, Z2, A2, X, Y):
     """
     Returns:
@@ -113,7 +122,8 @@ def backward_propagation(b1, W1, b2, W2, Z1, A1, Z2, A2, X, Y):
     dZ2 = A2 - Y
     dW2 = (1/m) * np.dot(dZ2, A1.T)
     db2 = (1/m) * np.sum(dZ2, axis=1, keepdims=True)
-    dZ1 = np.dot(W2.T, dZ2) * (1 - np.power(A1, 2)) # tanh(z1) = A1  (tanh()).prime = 1 - tanh()**2
+    dZ1 = np.dot(W2.T, dZ2) * (1 - np.power(A1, 2)) # tanh(Z1) = A1  (tanh()).prime = 1 - tanh()**2
+    # dZ1 = np.dot(W2.T, dZ2) * reluDerivative(Z1)
     dW1 = (1/m) * np.dot(dZ1, X.T)
     db1 = (1/m) * np.sum(dZ1, axis=1, keepdims=True)
     return dW1, db1, dW2, db2
@@ -203,3 +213,14 @@ def predict(W1, b1, W2, b2, X):
 # """
 
 
+
+
+
+# using ReLu function accuracy results :
+# Accuracy for 1 hidden units: 63.74999999999999 %
+# Accuracy for 2 hidden units: 63.74999999999999 %
+# Accuracy for 3 hidden units: 61.25000000000001 %
+# Accuracy for 4 hidden units: 70.75 %
+# Accuracy for 5 hidden units: 68.25 %
+# Accuracy for 20 hidden units: 76.0 %
+# Accuracy for 50 hidden units: 82.75 %
