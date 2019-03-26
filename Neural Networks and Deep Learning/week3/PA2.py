@@ -75,9 +75,6 @@ def initialize_parameters(n_x, n_h, n_y):
     W2 = np.random.randn(n_y, n_h) * 0.01
     return b1, W1, b2, W2
 
-n_x, n_h, n_y = layer_sizes(X, Y)
-b1, W1, b2, W2 = initialize_parameters(n_x, n_h, n_y)
-
 
 def forward_propagation(X, b1, W1, b2, W2):
     """
@@ -130,5 +127,79 @@ def update_parameters(W1, b1, W2, b2, dW1, db1, dW2, db2, learning_rate=1.2):
     b1 = b1 - learning_rate * db1
     b2 = b2 - learning_rate * db2
     return W1, b1, W2, b2
+
+
+def nn_model(X, Y, n_h, num_iterations=10000, print_cost=False):
+    """
+    Arguments:
+    print_cost -- if True, print the cost every 1000 iterations
+    """
+    np.random.seed(3)
+    n_x, _, n_y = layer_sizes(X, Y)
+    b1, W1, b2, W2 = initialize_parameters(n_x, n_h, n_y)
+    for i in range(num_iterations):
+        Z1, A1, Z2, A2 = forward_propagation(X, b1, W1, b2, W2)
+        dW1, db1, dW2, db2 = backward_propagation(b1, W1, b2, W2, Z1, A1, Z2, A2, X, Y)
+        W1, b1, W2, b2 = update_parameters(W1, b1, W2, b2, dW1, db1, dW2, db2, learning_rate=1.2)
+        if print_cost:
+            if i%1000==0:
+                 print ("Cost after iteration %i: %f" % (i, compute_cost(A2, Y, W1, W2)))
+    
+    return W1, b1, W2, b2
+
+
+def predict(W1, b1, W2, b2, X):
+    """
+    Using the learned parameters and forward propagation, predicts a class for each example in X
+
+    Arguments:
+    X -- input data of size (n_x, m)
+
+    Returns
+    predictions -- vector of predictions of our model (red: 0 / blue: 1)
+    """
+    _, _, _, A2 = forward_propagation(X, b1, W1, b2, W2)
+    Y_hat = np.round(A2)
+
+    return Y_hat
+
+
+# W1, b1, W2, b2 = nn_model(X, Y, n_h = 4, num_iterations=10000, print_cost=True)
+# # Plot the decision boundary
+# plot_decision_boundary(lambda x: predict( W1, b1, W2, b2, x.T), X, Y)
+# plt.title("Decision Boundary for hidden layer size " + str(4))
+# plt.show()
+
+# predictions = predict(W1, b1, W2, b2, X)
+# # print(predictions)
+# print ('Accuracy: %d' % float((np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100) + '%')
+
+# # Accuracy is really high compared to Logistic Regression. The model has learnt the leaf patterns of the flower!
+# # Neural networks are able to learn even highly non-linear decision boundaries, unlike logistic regression.
+
+
+
+
+
+# plt.figure(figsize=(16, 32))
+# hidden_layer_sizes = [1, 2, 3, 4, 5, 20, 50]
+# for i, n_h in enumerate(hidden_layer_sizes):
+#     plt.subplot(5, 2, i + 1)
+#     plt.title('Hidden Layer of size %d' % n_h)
+#     W1, b1, W2, b2 = nn_model(X, Y, n_h, num_iterations=5000)
+#     plot_decision_boundary(lambda x: predict(W1, b1, W2, b2, x.T), X, Y)
+#     predictions = predict(W1, b1, W2, b2, X)
+#     accuracy = float((np.dot(Y, predictions.T) + np.dot(1 - Y, 1 - predictions.T)) / float(Y.size) * 100)
+#     print ("Accuracy for {} hidden units: {} %".format(n_h, accuracy))
+# plt.show()
+# """
+# Interpretation:
+#     The larger models (with more hidden units) are able to fit the training set better,
+#     until eventually the largest models overfit the data.
+#     The best hidden layer size seems to be around n_h = 5. Indeed, a value around here seems to
+#     fits the data well without also incurring noticable overfitting.
+#     You will also learn later about regularization, which lets you use very large models (such as n_h = 50)
+#     without much overfitting.
+# """
 
 
