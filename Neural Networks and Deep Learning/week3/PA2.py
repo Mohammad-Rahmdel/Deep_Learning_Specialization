@@ -19,10 +19,14 @@ from planar_utils import plot_decision_boundary, sigmoid, load_planar_dataset, l
 np.random.seed(1) # set a seed so that the results are consistent
 
 X, Y = load_planar_dataset()
+# print(X)
+
 # print(X.shape) # contains your features (x1, x2)
 # print(Y.shape) # contains your labels (red:0, blue:1).
 # print(X.size)
 # print(Y.size)
+
+# # plot the training set
 # plt.scatter(X[0, :], X[1, :], c=Y[0, :], s=40, cmap=plt.cm.Spectral)
 # plt.show()
 
@@ -169,12 +173,14 @@ def predict(W1, b1, W2, b2, X):
     predictions -- vector of predictions of our model (red: 0 / blue: 1)
     """
     _, _, _, A2 = forward_propagation(X, b1, W1, b2, W2)
+    # print(A2)
     Y_hat = np.round(A2)
 
     return Y_hat
 
 
 # W1, b1, W2, b2 = nn_model(X, Y, n_h = 4, num_iterations=10000, print_cost=True)
+# # Y_hat = predict(W1, b1, W2, b2, X)
 # # Plot the decision boundary
 # plot_decision_boundary(lambda x: predict( W1, b1, W2, b2, x.T), X, Y)
 # plt.title("Decision Boundary for hidden layer size " + str(4))
