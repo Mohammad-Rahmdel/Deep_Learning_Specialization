@@ -31,9 +31,8 @@ def initialize_parameters_deep(layer_dims):
                     Wl -- weight matrix of shape (layer_dims[l], layer_dims[l-1])
                     bl -- bias vector of shape (layer_dims[l], 1)
     """
-    np.random.seed(3)
     parameters = {}
-    L = len(layer_dims)
+    L = len(layer_dims) #number of layer (counting input layer)
 
     for l in range(1, L):
         parameters['b' + str(l)] = np.zeros((layer_dims[l],1))
@@ -197,22 +196,29 @@ def L_model_backward(AL, Y, caches):
     # Initializing the backpropagation
     dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL)) # derivative of cost with respect to AL
     dA = dAL
+    print(dAL)
     cache = caches[L-1]
     dA_prev, dW, db = linear_activation_backward(dA, cache, "sigmoid")
-    grads["dA" + str(L)] = dA_prev
+    grads["dA" + str(L)] = dA_prev #or dA ??????????????????????????????????????????????????????????
     grads["dW" + str(L)] = dW
     grads["db" + str(L)] = db
     dA = dA_prev
 
-    for i in range(1,L): # 1 to l-1
+    for i in reversed(range(1,L)): # l-1 to 1
         cache = caches[i-1]
         dA_prev, dW, db = linear_activation_backward(dA, cache, "relu")
-        grads["dA" + str(i)] = dA_prev
+        grads["dA" + str(i)] = dA_prev #or dA ??????????????????????????????????????????????????????????
         grads["dW" + str(i)] = dW
         grads["db" + str(i)] = db
         dA = dA_prev
 
     return grads
+
+
+Y_assess, AL, caches = L_model_backward_test_case()
+grads = L_model_backward(AL, Y_assess, caches)
+print(grads)
+print(AL)
 
 
 
@@ -221,8 +227,8 @@ def update_parameters(parameters, grads, learning_rate):
     Update parameters using gradient descent
     Returns:
     parameters -- python dictionary containing your updated parameters 
-                  parameters["W" + str(l)] = ... 
-                  parameters["b" + str(l)] = ...
+                  parameters["W" + str(l)]
+                  parameters["b" + str(l)]
     """
     L = len(parameters) // 2 
     # L = len(grads) // 3 
@@ -232,13 +238,4 @@ def update_parameters(parameters, grads, learning_rate):
 
     return parameters
 
-parameters, grads = update_parameters_test_case()
-parameters = update_parameters(parameters, grads, 0.1)
-
-print ("W1 = " + str(parameters["W1"]))
-print ("b1 = " + str(parameters["b1"]))
-print ("W2 = " + str(parameters["W2"]))
-print ("b2 = " + str(parameters["b2"]))
-print ("W3 = " + str(parameters["W3"]))
-print ("b3 = " + str(parameters["b3"]))
 
