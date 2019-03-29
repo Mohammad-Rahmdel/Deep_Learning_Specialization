@@ -79,11 +79,11 @@ def sigmoid_backward(dA, cache):
 
 
 def load_data():
-    train_dataset = h5py.File('datasets/train_catvnoncat.h5', "r")
+    train_dataset = h5py.File('./train_catvnoncat.h5', "r")
     train_set_x_orig = np.array(train_dataset["train_set_x"][:]) # your train set features
     train_set_y_orig = np.array(train_dataset["train_set_y"][:]) # your train set labels
 
-    test_dataset = h5py.File('datasets/test_catvnoncat.h5', "r")
+    test_dataset = h5py.File('./test_catvnoncat.h5', "r")
     test_set_x_orig = np.array(test_dataset["test_set_x"][:]) # your test set features
     test_set_y_orig = np.array(test_dataset["test_set_y"][:]) # your test set labels
 
@@ -419,4 +419,4 @@ def print_mislabeled_images(classes, X, y, p):
         plt.subplot(2, num_images, i + 1)
         plt.imshow(X[:,index].reshape(64,64,3), interpolation='nearest')
         plt.axis('off')
-plt.title("Prediction: " + classes[int(p[0,index])].decode("utf-8") + " \n Class: " + classes[y[0,index]].decode("utf-8"))
+    plt.title("Prediction: " + classes[int(p[0,index])].decode("utf-8") + " \n Class: " + classes[y[0,index]].decode("utf-8"))
