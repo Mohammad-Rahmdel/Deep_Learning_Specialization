@@ -7,7 +7,6 @@ https://github.com/Kulbear/deep-learning-coursera/blob/master/Neural%20Networks%
 import numpy as np
 import h5py
 import matplotlib.pyplot as plt
-from testCases_v2 import *
 from dnn_utils_v2 import sigmoid, sigmoid_backward, relu, relu_backward
 
 
@@ -213,12 +212,6 @@ def L_model_backward(AL, Y, caches):
         dA = dA_prev
 
     return grads
-
-
-Y_assess, AL, caches = L_model_backward_test_case()
-grads = L_model_backward(AL, Y_assess, caches)
-print(grads)
-print(AL)
 
 
 
