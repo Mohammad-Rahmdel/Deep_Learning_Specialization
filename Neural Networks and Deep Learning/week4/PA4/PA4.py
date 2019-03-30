@@ -134,7 +134,29 @@ def L_layer_model(X, Y, layers_dims, learning_rate=0.0075, num_iterations=3000, 
    
 
 layers_dims = [12288, 20, 7, 5, 1]
-parameters = L_layer_model(train_x, train_y, layers_dims, num_iterations=2500, print_cost=True)
+parameters = L_layer_model(train_x, train_y, layers_dims, num_iterations=2500, print_cost=False)
 
-pred_train = predict(train_x, train_y, parameters)
-pred_test = predict(test_x, test_y, parameters)
+# pred_train = predict(train_x, train_y, parameters)
+# pred_test = predict(test_x, test_y, parameters)
+
+
+# print_mislabeled_images(classes, test_x, test_y, pred_test)  #doesn't work
+
+
+
+
+# Predict your image :))
+
+my_image = "joey.jpeg" # change this to the name of your image file 
+my_label_y = [0] # the true class of your image (1 -> cat, 0 -> non-cat)
+
+num_x = 64
+
+fname = "images/" + my_image    # copy your image in this directory 
+image = np.array(ndimage.imread(fname, flatten=False))
+my_image = scipy.misc.imresize(image, size=(num_x, num_x)).reshape((num_x*num_x*3,1))
+my_predicted_image = predict(my_image, my_label_y, parameters)
+
+plt.imshow(image)
+print ("y = " + str(np.squeeze(my_predicted_image)) + ", your L-layer model predicts a \"" + classes[int(np.squeeze(my_predicted_image)),].decode("utf-8") +  "\" picture.")
+plt.show()
