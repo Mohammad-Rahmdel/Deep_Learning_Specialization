@@ -1,4 +1,4 @@
-# Deep_Learning_Specialization
+# Deep Learning Specialization
 Deep Learning Specialization Course on Coursera
 
 My notes and assignments written in Python3.
@@ -24,7 +24,7 @@ https://qbxthvkswvvyvanaimjbxl.coursera-apps.org/tree/
 
 - Course 2: Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization
 
- [Week 1 - PA 1 - Initialization](https://github.com/Kulbear/deep-learning-coursera/blob/master/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Initialization.ipynb)
+  - [Week 1 - PA 1 - Initialization](https://github.com/Kulbear/deep-learning-coursera/blob/master/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Initialization.ipynb)
   - [Week 1 - PA 2 - Regularization](https://github.com/Kulbear/deep-learning-coursera/blob/master/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Regularization.ipynb)
   - [Week 1 - PA 3 - Gradient Checking](https://github.com/Kulbear/deep-learning-coursera/blob/master/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Gradient%20Checking.ipynb)
   - [Week 2 - PA 4 - Optimization Methods](https://github.com/Kulbear/deep-learning-coursera/blob/master/Improving%20Deep%20Neural%20Networks%20Hyperparameter%20tuning%2C%20Regularization%20and%20Optimization/Optimization%20methods.ipynb)
@@ -36,6 +36,6 @@ https://qbxthvkswvvyvanaimjbxl.coursera-apps.org/tree/
   
 - Course 4: Convolutional Neural Networks
 
- - [Week 1 - PA 1 - Convolutional Model: step by step](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week1/PA1%20-%20Convolution%20model%20Step%20by%20Step/Convolution%20model%20:%20Step%20by%20Step%20v2.ipynb)
+  - [Week 1 - PA 1 - Convolutional Model: step by step](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week1/PA1%20-%20Convolution%20model%20Step%20by%20Step/Convolution%20model%20:%20Step%20by%20Step%20v2.ipynb)
 
- - [Week 1 - PA 2 - Convolutional Model: step by step]()
+  - [Week 1 - PA 2 - Convolutional Model: step by step]()
