@@ -1,6 +1,11 @@
 # deeplearning.ai-Foundations-of-Convolutional-Neural-Networks
 Foundations of Convolutional Neural Networks, deeplearning.ai coursera course
 
+  - use the following link to browse files:
+https://qbxthvkswvvyvanaimjbxl.coursera-apps.org/tree/ 
+
+
+
 ## Week 1: Foundations of Convolutional Neural Networks
 
 Introduction to Convolution, pooling and paddnig.
