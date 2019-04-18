@@ -243,4 +243,4 @@ def model(data, ix_to_char, char_to_ix, num_iterations = 35000, n_a = 50, dino_n
         
     return parameters
 
-parameters = model(data, ix_to_char, char_to_ix, num_iterations=35000)
+# parameters = model(data, ix_to_char, char_to_ix, num_iterations=35000)
