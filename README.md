@@ -28,7 +28,21 @@ My notes and assignments written in Python3.
   - There is no Programming Assignment for this course. 
   
 - Course 4: Convolutional Neural Networks
-
   - [Week 1 - PA 1 - Convolutional Model: step by step](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week1/PA1%20-%20Convolution%20model%20Step%20by%20Step/Convolution%20model%20:%20Step%20by%20Step%20v2.ipynb)
-
   - [Week 1 - PA 2 - Convolutional Model: Application](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week1/PA2%20-%20Convolution%20model%20Application/Convolution%2Bmodel%2B-%2BApplication%2B-%2Bv1.ipynb)
+  - [Week 2 - PA 3 - Keras Tutorial Happy House](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week2/PA3%20-%20Keras%20Tutorial%20Happy%20House/Keras%20Tutorial_Happy%20House%20v2.ipynb)
+  - [Week 2 - PA 4 - Residual Networks](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week2/PA4%20-%20Residual%20Networks/Residual%20Networks%20v2.ipynb)
+  - [Week 3 - Autonomous driving application - Car Detection](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week3/Autonomous_driving_application%20%20Car%20_detection%20v3.ipynb)
+  - [Week 4 - PA 6 - Face Recognition for Happy House](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week4/PA6%20-%20Face%20Recognition/Face%20Recognition%20for%20the%20Happy%20House_v3.ipynb) 
+  - [Week 4 - PA 7 - Art Generation with Neural Style transfer](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/4.Convolutional%20Neural%20Networks/week4/PA7%20-%20Neural%20Style%20Transfer/Art%20Generation%20with%20Neural%20Style%20Transfer%20v3.ipynb)
+  
+- Course 5: Convolutional Neural Networks
+ 
+  - [Week1 - PA 1 - Building a Recurrent Neural Network](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week1/PA1-Building%20a%20recurrent%20neural%20network%20-%20step%20by%20step/Building%2Ba%2BRecurrent%2BNeural%2BNetwork%2B-%2BStep%2Bby%2BStep%2B-%2Bv3.ipynb)
+  - [Week1 - PA 2 - Character level Dinosaur Name generation](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week1/PA2-Dinosaur%20Island%20-%20Character-Level%20Language%20Modeling/Colab_PA2_Week1_Course5.ipynb)
+  - [Week1 - PA 3 - Music Generation](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week1/PA3-Jazz%20improvisation%20with%20LSTM/Improvise%2Ba%2BJazz%2BSolo%2Bwith%2Ban%2BLSTM%2BNetwork%2B-%2Bv3.ipynb)
+  - [Week2 - PA 4 - Operations on Word vectors](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week2/PA4-Word%20Vector%20Representation/Operations%2Bon%2Bword%2Bvectors%2B-%2Bv2.ipynb)
+  - [Week2 - PA 5 - Emojify](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week2/PA5-Emojify/Emojify%2B-%2Bv2.ipynb)
+  - [Week3 - PA 6 - Neural Machine translation with attention](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week3/PA6-Neural%20machine%20translation%20with%20attention/Neural%2Bmachine%2Btranslation%2Bwith%2Battention%2B-%2Bv4.ipynb)
+  - [Week3 - PA 7 - Trigger word detection]()
+
