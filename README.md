@@ -44,5 +44,5 @@ My notes and assignments written in Python3.
   - [Week2 - PA 4 - Operations on Word vectors](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week2/PA4-Word%20Vector%20Representation/Operations%2Bon%2Bword%2Bvectors%2B-%2Bv2.ipynb)
   - [Week2 - PA 5 - Emojify](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week2/PA5-Emojify/Emojify%2B-%2Bv2.ipynb)
   - [Week3 - PA 6 - Neural Machine translation with attention](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week3/PA6-Neural%20machine%20translation%20with%20attention/Neural%2Bmachine%2Btranslation%2Bwith%2Battention%2B-%2Bv4.ipynb)
-  - [Week3 - PA 7 - Trigger word detection]()
+  - [Week3 - PA 7 - Trigger word detection](https://github.com/Mohammad-Rahmdel/Deep_Learning_Specialization/blob/master/5.Sequence%20Models/week3/PA7-Trigger%20word%20detection/Trigger%2Bword%2Bdetection%2B-%2Bv1.ipynb)
 
